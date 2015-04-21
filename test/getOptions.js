@@ -261,9 +261,11 @@ var testJenkins = function(sut, done){
   process.env.BUILD_ID = "1234";
   process.env.GIT_COMMIT = "a12s2d3df4f435g45g45g67h5g6";
   process.env.GIT_BRANCH = "master";
+  process.env.ghprbPullId = '1';
   sut(function(err, options){
     options.service_name.should.equal("jenkins");
     options.service_job_id.should.equal("1234");
+    options.service_pull_request.should.equal("1");
     options.git.should.eql({ head:
                                { id: 'a12s2d3df4f435g45g45g67h5g6',
                                  author_name: 'Unknown Author',
