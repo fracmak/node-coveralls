@@ -13,7 +13,8 @@
     "test": "make test"
   },
   "bin": {
-    "coveralls": "./bin/coveralls.js"
+    "coveralls": "./bin/coveralls.js",
+    "coveralls2": "./bin/coveralls2.js"
   },
   "maintainers": [
     "Gregg Caines <gregg@caines.ca> (http://caines.ca)"
@@ -27,9 +28,12 @@
     "Arpad Borsos <arpad.borsos@googlemail.com> (http://swatinem.de/)"
   ],
   "dependencies": {
+    "commander": "^2.8.0",
     "js-yaml": "3.0.1",
     "lcov-parse": "0.0.6",
+    "lodash": "^3.7.0",
     "log-driver": "1.2.4",
+    "q": "^1.2.0",
     "request": "2.40.0"
   },
   "devDependencies": {
