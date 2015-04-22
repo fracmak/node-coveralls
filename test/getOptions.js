@@ -31,6 +31,9 @@ describe("getBaseOptions", function(){
   it ("should set repo_token if it exists", function(done){
     testRepoToken(getBaseOptions, done);
   });
+  it ("should set parallel if COVERALLS_PARALLEL exists", function(done){
+    testParallels(getBaseOptions, done);
+  });
   it ("should detect repo_token if not passed in", function(done){
     testRepoTokenDetection(getBaseOptions, done);
   });
@@ -205,6 +208,14 @@ var testRepoToken = function(sut, done){
   process.env.COVERALLS_REPO_TOKEN = "REPO_TOKEN";
   sut(function(err, options){
     options.repo_token.should.equal("REPO_TOKEN");
+    done();
+  });
+};
+
+var testParallels = function(sut, done){
+  process.env.COVERALLS_PARALLEL = "true";
+  sut(function(err, options){
+    options.parallel.should.equal("true");
     done();
   });
 };
